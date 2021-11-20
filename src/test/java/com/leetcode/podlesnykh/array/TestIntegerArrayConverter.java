@@ -18,7 +18,7 @@ public class TestIntegerArrayConverter extends SimpleArgumentConverter {
 
     private Object convert(String source) throws ArgumentConversionException {
         final String stringSource = String.valueOf(source);
-        final String[] splitString = stringSource.split(",");
+        final String[] splitString = stringSource.split(" ");
         return Arrays.stream(splitString).mapToInt(Integer::valueOf).toArray();
     }
 

@@ -13,7 +13,9 @@ public abstract class RotateArrayTest {
     abstract void setUp();
 
     @ParameterizedTest
-    @CsvFileSource(resources = "/rotate-array-data.csv", delimiter = ';', numLinesToSkip = 1)
+    @CsvFileSource(resources = "/rotate-array-data.csv",
+            delimiter = ',',
+            numLinesToSkip = 1)
     void testRotate(@ConvertWith(TestIntegerArrayConverter.class) int [] array,
                             int steps,
                             @ConvertWith(TestIntegerArrayConverter.class) int [] expectedArray) {
