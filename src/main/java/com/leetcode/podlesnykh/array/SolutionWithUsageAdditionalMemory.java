@@ -4,9 +4,8 @@ public class SolutionWithUsageAdditionalMemory implements RotateArray {
     @Override
     public void rotate(int[] nums, int k) {
         final int stepCounter = calculateStepCount(nums.length, k);
-
-        int [] firstPart = prepareFirstPartArray(nums, stepCounter);
-        int [] secondPart = prepareSecondPartArray(nums, stepCounter);
+        final int [] firstPart = prepareFirstPartArray(nums, stepCounter);
+        final int [] secondPart = prepareSecondPartArray(nums, stepCounter);
         int j =0;
         for (int i = 0; i< nums.length; i++) {
             if (i < firstPart.length) {
@@ -32,10 +31,16 @@ public class SolutionWithUsageAdditionalMemory implements RotateArray {
 
     private int[] prepareFirstPartArray(int[] nums, int stepCounter) {
         int [] firstPart = new int [stepCounter];
-        for (int i = 0; i < stepCounter; i++) {;
-            firstPart[i] = nums[i + stepCounter];
+        int [] firstPart1 = new int [stepCounter];
+        int i = 0;
+        while (stepCounter>i) {
+            firstPart[i] = nums[nums.length - 1 - i];
+            i++;
         }
-        return firstPart;
+        for (int j = 0; j<firstPart.length; j++) {
+            firstPart1[j] = firstPart[firstPart.length -1 -j];
+        }
+        return firstPart1;
     }
 
     private int[] prepareSecondPartArray(int[] nums, int stepCounter) {

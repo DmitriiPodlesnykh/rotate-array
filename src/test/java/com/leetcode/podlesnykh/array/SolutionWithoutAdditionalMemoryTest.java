@@ -6,7 +6,7 @@ class SolutionWithoutAdditionalMemoryTest extends RotateArrayTest {
 
     @BeforeEach
     void setUp() {
-        sut = new SolutionWithUsageAdditionalMemory();
+        sut = new SolutionWithoutAdditionalMemory();
     }
 
 }
