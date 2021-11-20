@@ -12,7 +12,7 @@ public abstract class RotateArrayTest {
 
     abstract void setUp();
 
-    @ParameterizedTest
+    @ParameterizedTest()
     @CsvFileSource(resources = "/rotate-array-data.csv",
             delimiter = ',',
             numLinesToSkip = 1)

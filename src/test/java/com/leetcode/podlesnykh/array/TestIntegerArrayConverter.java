@@ -9,14 +9,13 @@ public class TestIntegerArrayConverter extends SimpleArgumentConverter {
 
     @Override
     protected Object convert(Object source, Class<?> targetType) throws ArgumentConversionException {
-        if (source instanceof String
-                && int[].class.isAssignableFrom(targetType)) {
+        if (source instanceof String ) {
             return convert(String.valueOf(source));
         }
         throw new IllegalArgumentException();
     }
 
-    private Object convert(String source) throws ArgumentConversionException {
+    private int[] convert(String source) throws ArgumentConversionException {
         final String stringSource = String.valueOf(source);
         final String[] splitString = stringSource.split(" ");
         return Arrays.stream(splitString).mapToInt(Integer::valueOf).toArray();
